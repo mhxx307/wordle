@@ -10,12 +10,17 @@ const Keys: React.FC<KeyProps> = ({ keywordsRow }) => {
         <>
             {keywords.map((keyword, index) => {
                 return (
-                    <>
-                        <KeyItem key={index} keyword={keyword} />
+                    <div key={index}>
+                        <KeyItem keyword={keyword} width="w-[30px]" height="h-[30px]" />
                         {keyword === "m" && (
-                            <KeyItem key={index} keyword="back" width={50} height={30} />
+                            <KeyItem
+                                key={index}
+                                keyword="back"
+                                width="w-[50px]"
+                                height="h-[30px]"
+                            />
                         )}
-                    </>
+                    </div>
                 );
             })}
         </>

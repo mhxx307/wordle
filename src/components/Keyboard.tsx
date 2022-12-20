@@ -14,7 +14,7 @@ const Keyboard: React.FC = () => {
                 return (
                     <div key={index} className="flex justify-center">
                         {index === 2 && (
-                            <KeyItem keyword="enter" width={60} height={30} />
+                            <KeyItem keyword="enter" width="w-[70px]" height="h-[30px]" />
                         )}
                         <Keys keywordsRow={keywordsRow} />
                     </div>
