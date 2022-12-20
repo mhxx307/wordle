@@ -1,3 +1,4 @@
+import KeyItem from "./KeyItem";
 import Keys from "./Keys";
 
 const Keyboard: React.FC = () => {
@@ -13,13 +14,7 @@ const Keyboard: React.FC = () => {
                 return (
                     <div key={index} className="flex justify-center">
                         {index === 2 && (
-                            <span
-                                key={index}
-                                className="inline-flex justify-center items-center bg-[#999] text-white font-medium uppercase
-                    rounded-sm m-1 w-[60px] h-[30px] cursor-pointer sm:hover:bg-[#b2b2b2] transition-all duration-200"
-                            >
-                                enter
-                            </span>
+                            <KeyItem keyword="enter" width={60} height={30} />
                         )}
                         <Keys keywordsRow={keywordsRow} />
                     </div>
