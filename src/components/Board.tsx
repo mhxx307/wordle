@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Square from "./Square";
 
 interface BoardProps {
@@ -6,7 +7,10 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ board }) => {
     return (
-        <div className="w-[300px] h-[300px] text-white grid grid-cols-5 gap-1 mb-1 bg-blue-900">
+        <div
+            className="w-[300px] h-[300px] text-white grid grid-cols-5 gap-1 mb-[100px]
+        bg-blue-900 text-[30px]"
+        >
             {board.map((boardValue, index) => {
                 return <Square boardValue={boardValue} position={index} key={index} />;
             })}
@@ -14,4 +18,4 @@ const Board: React.FC<BoardProps> = ({ board }) => {
     );
 };
 
-export default Board;
+export default memo(Board);

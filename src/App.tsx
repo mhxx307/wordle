@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux/es/exports";
 import "./App.css";
+import { useSelector } from "react-redux/es/exports";
 import Board from "./components/Board";
 import { rootState } from "./components/interface";
 import Keyboard from "./components/Keyboard";
 
 function App() {
     const board = useSelector((state: rootState) => state.board.board);
-    console.log(board);
     return (
         <div className="App h-[100vh] pt-10 bg-blue-900">
             <div className="flex flex-1 flex-col items-center">

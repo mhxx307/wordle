@@ -6,6 +6,7 @@ interface KeyProps {
 
 const Keys: React.FC<KeyProps> = ({ keywordsRow }) => {
     const keywords: string[] = keywordsRow.split(" ");
+
     return (
         <>
             {keywords.map((keyword, index) => {
