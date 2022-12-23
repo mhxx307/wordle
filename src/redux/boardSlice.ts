@@ -1,4 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import wordList from "../word.json";
+
+let randomNumber = Math.floor(Math.random() * wordList.words.length);
+
 const board = [
     "",
     "",
@@ -34,7 +38,13 @@ const board = [
 
 export const boardSlice = createSlice({
     name: "board",
-    initialState: { board: board, position: 0, row: 0, key: "", correctWord: "hello" },
+    initialState: {
+        board: board,
+        position: 0,
+        row: 0,
+        key: "",
+        correctWord: wordList.words[randomNumber],
+    },
     reducers: {
         setBoard: (state, action) => {
             state.board = action.payload;
