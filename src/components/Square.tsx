@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { rootState } from "./interface";
+import "./square.css";
 
 interface SquareProps {
     boardValue: string;
@@ -11,7 +12,7 @@ interface SquareProps {
 const Square: React.FC<SquareProps> = ({ boardValue, position }) => {
     // redux state
     const positionRedux = useSelector((state: rootState) => state.board.position);
-    // const rowRedux = useSelector((state: rootState) => state.board.row);
+    const rowRedux = useSelector((state: rootState) => state.board.row);
     const correctWord = useSelector((state: rootState) => state.board.correctWord);
     // local state
     const [isCorrect, setIsCorrect] = useState<boolean>(false);
@@ -56,13 +57,10 @@ const Square: React.FC<SquareProps> = ({ boardValue, position }) => {
         }),
     };
 
-    const status: string = isCorrect
-        ? "correct"
-        : isAlmostCorrect
-        ? "almost"
-        : isWrong
-        ? "wrong"
-        : "";
+    // check if the square is correct, almost correct or wrong when clicked
+    const status: any =
+        Math.floor(position / 5) < rowRedux &&
+        (isCorrect ? "correct" : isAlmostCorrect ? "almost" : isWrong ? "wrong" : "");
 
     return (
         <motion.div
@@ -70,9 +68,9 @@ const Square: React.FC<SquareProps> = ({ boardValue, position }) => {
             variants={variants}
             className={`h-[60px] flex justify-center items-center
         rounded-sm border-[1px] border-[cyan] cursor-pointer ${
-            (status === "correct" && "bg-[#10A19D]") ||
-            (status === "wrong" && "bg-[red]") ||
-            (status === "almost" && "bg-[yellow]")
+            (status === "correct" && "bg-[#10A19D] square") ||
+            (status === "wrong" && "bg-[red] square") ||
+            (status === "almost" && "bg-[yellow] square")
         }`}
         >
             {boardValue}
