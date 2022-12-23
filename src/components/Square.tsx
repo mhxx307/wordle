@@ -14,6 +14,8 @@ const Square: React.FC<SquareProps> = ({ boardValue, position }) => {
     const positionRedux = useSelector((state: rootState) => state.board.position);
     const rowRedux = useSelector((state: rootState) => state.board.row);
     const correctWord = useSelector((state: rootState) => state.board.correctWord);
+    // console.log(correctWord);
+
     // local state
     const [isCorrect, setIsCorrect] = useState<boolean>(false);
     const [isWrong, setIsWrong] = useState<boolean>(false);
@@ -73,7 +75,7 @@ const Square: React.FC<SquareProps> = ({ boardValue, position }) => {
             (status === "almost" && "bg-[yellow] square")
         }`}
         >
-            {boardValue}
+            {boardValue.toUpperCase()}
         </motion.div>
     );
 };
